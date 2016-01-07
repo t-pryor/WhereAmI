@@ -24,7 +24,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var altitudeLabel:UILabel!
     @IBOutlet var verticalAccuracyLabel: UILabel!
     @IBOutlet var distanceTraveledLabel: UILabel!
-    
+    @IBOutlet var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +56,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         switch status {
         case .Authorized, .AuthorizedWhenInUse:
             locationManager.startUpdatingLocation()
+            mapView.showsUserLocation = true
         default:
             locationManager.stopUpdatingLocation()
+            mapView.showsUserLocation = false
+            
             
         }
     }
@@ -112,6 +115,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             // if nil, this update is the first valid one gotten from the location manager, so zero out distanceFromStart
             if previousPoint == nil {
                 totalMovementDistance = 0
+                
+                let start = Place(title: "Start Point", subtitle: "This is where we started", coordinate: newLocation.coordinate)
+                mapView.addAnnotation(start)
+                
+                // struct included in Map Kit that lets us tell the view which secion of the map we want it to display
+                let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 1000, 1000)
+                mapView.setRegion(region, animated: true)
+                
             } else {
                 print("movement distance: " +
                 "\(newLocation.distanceFromLocation(previousPoint!))")

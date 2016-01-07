@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UfW-Gl-eaF">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x43-Pb-2J2" userLabel="Lower View">
                                 <rect key="frame" x="0.0" y="420" width="600" height="180"/>
                                 <subviews>
@@ -156,6 +159,10 @@
                         <color key="backgroundColor" white="0.72799030172413792" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="x43-Pb-2J2" secondAttribute="trailing" constant="20" symbolic="YES" id="4gx-6e-gwv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UfW-Gl-eaF" secondAttribute="trailing" constant="-20" id="4m8-8I-3zd"/>
+                            <constraint firstItem="UfW-Gl-eaF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Ela-w0-n2e"/>
+                            <constraint firstItem="UfW-Gl-eaF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="FJy-l8-Z0w"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UfW-Gl-eaF" secondAttribute="bottom" id="HTk-AC-8K6"/>
                             <constraint firstItem="x43-Pb-2J2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Tcb-sY-Jnj"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="x43-Pb-2J2" secondAttribute="bottom" id="e7O-4z-zRE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x43-Pb-2J2" secondAttribute="trailing" constant="-20" id="jwK-vb-GB8"/>
@@ -174,6 +181,7 @@
                         <outlet property="horizontalAccuracyLabel" destination="mgq-w5-jrp" id="Hor-SJ-qUC"/>
                         <outlet property="latitudeLabel" destination="7Oa-aF-VIq" id="4b6-lP-wB9"/>
                         <outlet property="longitudeLabel" destination="wSG-Gx-ytp" id="IQI-oc-T6R"/>
+                        <outlet property="mapView" destination="UfW-Gl-eaF" id="rqU-iV-Qra"/>
                         <outlet property="verticalAccuracyLabel" destination="tN9-H3-w5v" id="NPt-O4-k16"/>
                     </connections>
                 </viewController>
